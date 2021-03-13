@@ -31,14 +31,17 @@ fetch_googletest(
 
 ADD_EXECUTABLE(main
     main.cpp
+    includes/lab/lab.cpp
 )
 
 ADD_EXECUTABLE(basic_test
     _tests/_test_files/basic_test.cpp
+    includes/lab/lab.cpp
 )
 
 ADD_EXECUTABLE(testB
     _tests/_test_files/testB.cpp
+    includes/lab/lab.cpp
 )
 
 TARGET_LINK_LIBRARIES(basic_test gtest)
