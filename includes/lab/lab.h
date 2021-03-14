@@ -50,7 +50,11 @@ int **init_lab(int* stations);
 bool login(int** labs, int lab, int station, int id);
 bool logout(int** labs, int* sizes, int id);
 
-
+//====== plane functions 
+bool ** init_plane(int* seats);
+void print_plane(bool **plane,int *sizes);
+bool reserve(bool** plane, int row, int col);
+bool cancel(bool** plane, int row, int col);
 
 //DEFINITIONS-----------------
 template <class T>
@@ -59,7 +63,7 @@ T** allocate_twod(int* sizes)
     int size = array_size(sizes);
     T** two_d = new T*[size];
     T** walker_twod = two_d;
-    T* walker_sizes = sizes;
+    int * walker_sizes = sizes;
     for(int i = 0; i < size; i++){
         *walker_twod = new T[*walker_sizes];
         walker_twod ++;
@@ -114,10 +118,10 @@ T& get_twod(T** twod, int row, int col)
 template<class T>
 void init_twod(T** twod, int* sizes, T init_item)
 {
-T** row = twod;
-    T* col;
+    T** row = twod;
+    T* col = *twod;
     int size = array_size(sizes);
-    T * walker = sizes;
+    int * walker = sizes;
     for (int i = 0; i <size; i++){
         col = *row;
         for(int j =0; j < *walker; j++){
@@ -189,7 +193,7 @@ ostream& print_twod(T** twod, int* sizes, ostream& outs)
     T** row = twod;
     T* col;
     int size = array_size(sizes);
-    T * walker = sizes;
+    int * walker = sizes;
     for (int i = 0; i <size; i++){
         col = *row;
         for(int j =0; j < *walker; j++){
@@ -200,7 +204,8 @@ ostream& print_twod(T** twod, int* sizes, ostream& outs)
         row++;
         walker++;
     }
-
+    outs <<endl;
+ 
     return outs;
 }
 

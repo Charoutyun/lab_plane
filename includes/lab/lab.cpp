@@ -4,10 +4,10 @@
 
 
 //----2D ARRAY FUNCTIONS
-int array_size(int* sizes)
+int array_size(int* sizes) // simple function that just checks how many arrays there are
 {
 
-int * walker =  sizes;
+int * walker =  sizes;    
 int count = 0;
 while (* walker != -1 ){
     walker ++;
@@ -18,7 +18,7 @@ while (* walker != -1 ){
 return count;
 }
 
-void print_array(int* a)
+void print_array(int* a) // prints out an array ** NOT A 2D ONE ***
 {
     int  *walker = a;
     int size = array_size(a);
@@ -31,7 +31,7 @@ void print_array(int* a)
 }
 
 
-bool index_is_valid(int* sizes, int row, int col)
+bool index_is_valid(int* sizes, int row, int col) 
 {
   int how_many_rows = array_size(sizes);
   if(row < how_many_rows  && row > -1 ){
@@ -39,9 +39,9 @@ bool index_is_valid(int* sizes, int row, int col)
      
         if( col < * value_of_row ){
             return true;
+        
         }
     }
-
     return false;
 }
 
@@ -49,21 +49,78 @@ bool index_is_valid(int* sizes, int row, int col)
 //----LAB FUNCTIONS
 int **init_lab(int* stations)
 {
+ int ** twod_array = allocate_twod<int>(stations);
 
+    init_twod(twod_array,stations);
 
- return nullptr;
+    return twod_array;
+
+ 
 }
 
 bool login(int** labs, int lab, int station, int id)
 {
+    int checking_if_valid = read_twod(labs, lab, station);
+  
+    if (checking_if_valid == false){
+    write_twod(labs, lab, station, id);
+    return true;
+    }
 
-
- return true;
+    return false;
 }
 
 bool logout(int** labs, int* sizes, int id)
 {
-
-
- return true;
+    int* checking_if_logged_in = search_twod(labs, sizes, id);
+    if (checking_if_logged_in != nullptr){
+        
+        *checking_if_logged_in = false;
+        
+        return true;
+          
+    }
+ return false;
 }
+
+
+// ----- plane functions.
+
+bool ** init_plane(int* seats){
+
+    bool** twod_array = allocate_twod<bool>(seats);
+
+    init_twod(twod_array,seats);
+
+    return twod_array;
+
+}
+
+void print_plane(bool** plane,int* seats){
+    print_twod(plane,seats);
+}
+
+bool reserve(bool** plane, int row, int col){
+    int checking_if_valid = read_twod(plane, row, col);  
+  
+     if (checking_if_valid == false){
+         write_twod(plane, row, col, true);
+     }
+     return false;
+
+
+
+}
+
+bool cancel(bool** plane, int row, int col){
+    int checking_if_valid = read_twod(plane, row, col);  
+  
+     if (checking_if_valid == true){
+         write_twod(plane, row, col, false);
+     }
+     return false;
+
+
+
+}
+
