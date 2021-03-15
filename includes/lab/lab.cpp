@@ -31,7 +31,7 @@ void print_array(int* a) // prints out an array ** NOT A 2D ONE ***
 }
 
 
-bool index_is_valid(int* sizes, int row, int col) 
+bool index_is_valid(int* sizes, int row, int col)  // checks if the row/col are indeed in the array then returns true if so and false if not 
 {
   int how_many_rows = array_size(sizes);
   if(row < how_many_rows  && row > -1 ){
@@ -46,7 +46,7 @@ bool index_is_valid(int* sizes, int row, int col)
 }
 
 
-//----LAB FUNCTIONS
+//----LAB FUNCTIONS               // created an array, then goes through each cell one by one and fills it with zeros.
 int **init_lab(int* stations)
 {
  int ** twod_array = allocate_twod<int>(stations);
@@ -58,7 +58,7 @@ int **init_lab(int* stations)
  
 }
 
-bool login(int** labs, int lab, int station, int id)
+bool login(int** labs, int lab, int station, int id) // finds the location of the row and col that is inserted then writes the id there.
 {
     int checking_if_valid = read_twod(labs, lab, station);
   
@@ -70,7 +70,7 @@ bool login(int** labs, int lab, int station, int id)
     return false;
 }
 
-bool logout(int** labs, int* sizes, int id)
+bool logout(int** labs, int* sizes, int id)   // doess almost the same as login but instead of searching for row and col it searches for the id its self then if it finds it, writes 0;
 {
     int* checking_if_logged_in = search_twod(labs, sizes, id);
     if (checking_if_logged_in != nullptr){
@@ -86,7 +86,7 @@ bool logout(int** labs, int* sizes, int id)
 
 // ----- plane functions.
 
-bool ** init_plane(int* seats){
+bool ** init_plane(int* seats){ // creates and fills the array with 0s 
 
     bool** twod_array = allocate_twod<bool>(seats);
 
@@ -96,11 +96,11 @@ bool ** init_plane(int* seats){
 
 }
 
-void print_plane(bool** plane,int* seats){
+void print_plane(bool** plane,int* seats){      // prints out the 2d array 
     print_twod(plane,seats);
 }
 
-bool reserve(bool** plane, int row, int col){
+bool reserve(bool** plane, int row, int col){   // almost like the log in function but instead writes a one if someone is "logging/reserving" the seat 
     int checking_if_valid = read_twod(plane, row, col);  
   
      if (checking_if_valid == false){
@@ -111,7 +111,7 @@ bool reserve(bool** plane, int row, int col){
 
 
 }
-
+// same as reserve but instead searches for ones and writes 0's 
 bool cancel(bool** plane, int row, int col){
     int checking_if_valid = read_twod(plane, row, col);  
   

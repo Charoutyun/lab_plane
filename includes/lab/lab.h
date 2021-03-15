@@ -58,7 +58,7 @@ bool cancel(bool** plane, int row, int col);
 
 //DEFINITIONS-----------------
 template <class T>
-T** allocate_twod(int* sizes)
+T** allocate_twod(int* sizes) // creates an array which then its self holds arrays which indexes have the amount of sizes. 
 {
     int size = array_size(sizes);
     T** two_d = new T*[size];
@@ -76,7 +76,8 @@ T** allocate_twod(int* sizes)
 }
 
 template <class T>
-T** deallocate_twod(T** td, int rows) //rows is the number of rows. Always returns nullptr
+T** deallocate_twod(T** td, int rows) //rows is the number of rows. Always returns nullptr //
+// deletes dynamic arrays.
 {
 
  T ** walker_row = td;
@@ -89,7 +90,7 @@ T** deallocate_twod(T** td, int rows) //rows is the number of rows. Always retur
 }
 
 template <class T>
-T read_twod(T** twod, int row, int col)
+T read_twod(T** twod, int row, int col) // goes to the defined row and col, then sets its self to the value found in the wanted row and col.
 {
    T ** number_row = twod + row;
    T * number_col = *number_row + col;
@@ -99,7 +100,7 @@ T read_twod(T** twod, int row, int col)
 }
 
 template <class T>
-void write_twod(T** twod, int row, int col, const T& item)
+void write_twod(T** twod, int row, int col, const T& item) // can write a number in the chosen col and row 
 {
   T ** number_row = twod + row;
    T * number_col = *number_row + col;
@@ -108,7 +109,7 @@ void write_twod(T** twod, int row, int col, const T& item)
 }
 
 template <class T>
-T& get_twod(T** twod, int row, int col)
+T& get_twod(T** twod, int row, int col)   // can both read and write either a value or read a value 
 {
     T ** number_row = twod + row;
    T * number_col = *number_row + col;
@@ -116,7 +117,7 @@ T& get_twod(T** twod, int row, int col)
 }
 
 template<class T>
-void init_twod(T** twod, int* sizes, T init_item)
+void init_twod(T** twod, int* sizes, T init_item) // goes through a two d array then goes into the 1d arrays and changes the value of all the elements to init_item
 {
     T** row = twod;
     T* col = *twod;
@@ -135,7 +136,7 @@ void init_twod(T** twod, int* sizes, T init_item)
 }   
 
 template<class T>
-bool search_twod(T** twod, int* sizes, const T& key, int& row, int& col)
+bool search_twod(T** twod, int* sizes, const T& key, int& row, int& col) // goes through the two d array , then looks for the wanted key in the row and col specified, if it finds it it will return true, if it doesnt it will return false. 
 {
      T ** number_row = twod;
     T * number_col = *number_row;
@@ -159,7 +160,7 @@ bool search_twod(T** twod, int* sizes, const T& key, int& row, int& col)
     }
 
 
-    return true;
+    return false;
 }
 
 //return a pointer to the item if found, nullptr if not found: 
