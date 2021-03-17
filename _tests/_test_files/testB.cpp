@@ -7,7 +7,8 @@
 #include <list>
 
 #include "../../includes/lab/lab.h"
-
+#include "../../includes/plane/plane.h"
+#include "../../includes/two_d_functions/two_d_functions.h"
 using namespace std;
 
 bool test_stub(bool debug = false)
@@ -146,22 +147,22 @@ bool test_logout(bool debug = false) // simple test which logs in an id at lab 2
 
 bool test_plane(bool debug = false){ // basic test that insures that my functions do indeed function correctly.
   if (debug){
-    int size[] = {1,2,3,5,-1};
-    bool ** plane_array = allocate_twod<bool>(size);
     
-    plane_array = init_plane(size);
-    print_plane(plane_array,size);
+   
+    
+    bool** plane_array = init_plane();
+    print_plane(plane_array);
     cout <<endl;
 
-    cout << "reserving a seat in row one , and column two" <<endl;
-    reserve(plane_array,2,1);
-    print_plane(plane_array,size);
+    cout << "reserving a seat in row one , and column three" <<endl;
+    reserve(plane_array,1,2);
+    print_plane(plane_array);
 
     cout << endl; 
-    cout << "canceling a seat in row one ,and column two" << endl;
+    cout << "canceling a seat in row one ,and column three" << endl;
 
-    cancel(plane_array,2,1);
-    print_plane(plane_array,size);
+    cancel(plane_array,1,2);
+    print_plane(plane_array);
   
 
   }
@@ -363,14 +364,14 @@ TEST(TEST_STUB, TestStub) {
   
   //EXPECT_EQ(0, <your individual test functions are called here>);
 
-  EXPECT_EQ(1, test_stub(false));
+  EXPECT_EQ(1, test_stub(true));
 }
 
 TEST(TEST_ARRAY_SIZE, TestArraySize) {
 
 //EXPECT_EQ(0, <your individual test functions are called here>);
 
-  EXPECT_EQ(1, test_array_size(false));
+  EXPECT_EQ(1, test_array_size(true));
 
 }
 
@@ -379,21 +380,21 @@ TEST(test_print_array, TestPrintArray){
  
  //EXPECT_EQ(0, <your individual test functions are called here>);
  
-   EXPECT_EQ(1, test_print_array(false));
+   EXPECT_EQ(1, test_print_array(true));
 }
 
 TEST(TESTPLANE, TestPlane){
 
   //EXPECT_EQ(0, <your individual test functions are called here>);
  
-   EXPECT_EQ(1, test_plane(false));
+   EXPECT_EQ(1, test_plane(true));
 }
 
 TEST(TEST_INDEX_IS_VALID, TestIndexIsValid){
 
 //EXPECT_EQ(0, <your individual test functions are called here>);
   
-   EXPECT_EQ(1, test_index_is_valid(false));
+   EXPECT_EQ(1, test_index_is_valid(true));
 }
 
 
@@ -402,14 +403,14 @@ TEST(TEST_LAB_INIT, TestLabInit){
 
   //EXPECT_EQ(0, <your individual test functions are called here>);
 
-   EXPECT_EQ(1, test_lab_init(false));
+   EXPECT_EQ(1, test_lab_init(true));
 }
 
 TEST(TEST_LOG_IN, TestLogIn){
 
 //EXPECT_EQ(0, <your individual test functions are called here>);
   
-    EXPECT_EQ(1, test_login(false));
+    EXPECT_EQ(1, test_login(true));
 
 }
 
@@ -418,35 +419,35 @@ TEST(TEST_LOG_OUT, TestLogOut){
 
  //EXPECT_EQ(0, <your individual test functions are called here>);
  
-   EXPECT_EQ(1, test_logout(false));
+   EXPECT_EQ(1, test_logout(true));
 }
 
 TEST(TEST_ALLOCATE_TWOD, TestAllocateTwod){
 
  //EXPECT_EQ(0, <your individual test functions are called here>);
  
-   EXPECT_EQ(1, test_allocate_twod(false));
+   EXPECT_EQ(1, test_allocate_twod(true));
 }
 
 TEST(TEST_DEALLOCATE_TWOD, TestDeallocateTwod){
 
  //EXPECT_EQ(0, <your individual test functions are called here>);
  
-   EXPECT_EQ(1, test_deallocate_twod(false));
+   EXPECT_EQ(1, test_deallocate_twod(true));
 }
 
 TEST(TEST_READ_TWOD, TestReadTwod){
 
  //EXPECT_EQ(0, <your individual test functions are called here>);
  
-   EXPECT_EQ(1, test_read_twod(false));
+   EXPECT_EQ(1, test_read_twod(true));
 }
 
 TEST(TEST_WRITE_TWOD, TestWriteTwod){
 
  //EXPECT_EQ(0, <your individual test functions are called here>);
  
-   EXPECT_EQ(1, test_write_twod(false));
+   EXPECT_EQ(1, test_write_twod(true));
 }
 
 
@@ -454,28 +455,28 @@ TEST(TEST_GET_TWOD, TestGetTwod){
 
  //EXPECT_EQ(0, <your individual test functions are called here>);
  
-   EXPECT_EQ(1, test_get_twod(false));
+   EXPECT_EQ(1, test_get_twod(true));
 }
 
 TEST(TEST_INIT_TWOD, TestInitTwod){
 
  //EXPECT_EQ(0, <your individual test functions are called here>);
  
-   EXPECT_EQ(1, test_init_twod(false));
+   EXPECT_EQ(1, test_init_twod(true));
 }
 
 TEST(TEST_SEARCH_TWOD_TEMPLATED, TestSearchTwodTemplated){
 
  //EXPECT_EQ(0, <your individual test functions are called here>);
  
-   EXPECT_EQ(1, test_search_twod_templated(false));
+   EXPECT_EQ(1, test_search_twod_templated(true));
 }
 
 TEST(TEST_PRINT_TWOD, TestPrintTwod){
 
  //EXPECT_EQ(0, <your individual test functions are called here>);
  
-   EXPECT_EQ(1, test_print_twod(false));
+   EXPECT_EQ(1, test_print_twod(true));
 }
 
 

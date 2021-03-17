@@ -1,3 +1,3 @@
-g++ -std=gnu++11 -o main       ../main.cpp ../includes/lab/lab.cpp -Igoogletest/googletest/include -pthread -Lgoogletest/build/lib -lgtest
-g++ -std=gnu++11 -o basic_test ../_tests/_test_files/basic_test.cpp ../includes/lab/lab.cpp -Igoogletest/googletest/include -pthread -Lgoogletest/build/lib -lgtest
-g++ -std=gnu++11 -o testB      ../_tests/_test_files/testB.cpp ../includes/lab/lab.cpp     -Igoogletest/googletest/include -pthread -Lgoogletest/build/lib -lgtest
+g++ -std=gnu++11 -o main       ../main.cpp ../includes/lab/lab.cpp ../includes/plane/plane.cpp ../includes/two_d_functions/two_d_functions.cpp -Igoogletest/googletest/include -pthread -Lgoogletest/build/lib -lgtest
+g++ -std=gnu++11 -o basic_test ../_tests/_test_files/basic_test.cpp ../includes/lab/lab.cpp ../includes/two_d_functions/two_d_functions.cpp ../includes/plane/plane.cpp -Igoogletest/googletest/include -pthread -Lgoogletest/build/lib -lgtest
+g++ -std=gnu++11 -o testB      ../_tests/_test_files/testB.cpp ../includes/lab/lab.cpp   ../includes/plane/plane.cpp  ../includes/two_d_functions/two_d_functions.cpp -Igoogletest/googletest/include -pthread -Lgoogletest/build/lib -lgtest
