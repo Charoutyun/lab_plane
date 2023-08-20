@@ -4,8 +4,9 @@
 
 ## Features:
 
-- Not Implemented:
-  - everything has been implemented
+All tests passed:
+
+Using two-d arrays to creat a check in and check out system.
 
 <br><br>
 
@@ -76,7 +77,7 @@ td[3][14] is NOT a valid location.
 
 ================ test login() =====================
 
-logging in lab: <<lab<<, station <<station<<:
+logging in lab: <<lab <<, station <<station<<:
     0    0    0
     0    0    0    0
     0 2121    0    0    0
@@ -84,7 +85,7 @@ logging in lab: <<lab<<, station <<station<<:
     0    0    0
 
 
-logging in lab: <<lab<<, station <<station<<:
+logging in lab: <<lab <<, station <<station<<:
     0    0    0
     0    0    0    0
     0 2121    0    0    0
@@ -92,7 +93,7 @@ logging in lab: <<lab<<, station <<station<<:
     0    0 4242
 
 
-logging in lab: <<lab<<, station <<station<<:
+logging in lab: <<lab <<, station <<station<<:
 login() correctly refused to log in a new user into an already occupied station
     0    0    0
     0    0    0    0
