@@ -37,66 +37,181 @@
 
 <br/><br/><br/><br/>
 <pre>
-[==========] Running 1 test from 1 test suite.
-[----------] Global test environment set-up.
-[----------] 1 test from TEST_LAB_N_PLANE
-[ RUN      ] TEST_LAB_N_PLANE.BasicTest
+[==========] Running 3 tests from 2 test suites.
+[----------] Global test environment set-up.    
+[----------] 1 test from TWO_D_ARRAYS
+[ RUN      ] TWO_D_ARRAYS.BasicTest  
+   -1   -1   -1   -1
+   -1   -1   -1   -1   -1
+   -1   -1   -1
+   -1   -1   -1   -1   -1   -1       
+
+
+   -1   -1   -1    3
+   -1   -1   -1   -1   14
+   -1   -1   -1
+   -1   31   -1   -1   -1   -1
+
+
+[0][3]: 3
+[1][4]: 14
+[3][1]: 31
+[3][4]: 34
+
+found 33 at: [3][1]
+td[3][4] is a valid location.
+td[13][4] is NOT a valid location.
+td[3][14] is NOT a valid location.
+---- end test two d functions ----------
+[       OK ] TWO_D_ARRAYS.BasicTest (9 ms)
+[----------] 1 test from TWO_D_ARRAYS (9 ms total)
+
+[----------] 2 tests from TEST_LAB_N_PLANE
+[ RUN      ] TEST_LAB_N_PLANE.BasicTestLab
     0    0    0
     0    0    0    0
     0    0    0    0    0
     0
     0    0    0
 
+================ test login() =====================
 
-logging in lab: 2, station 1:
+logging in lab: <<lab<<, station <<station<<:
     0    0    0
     0    0    0    0
-    0 1234    0    0    0
-    0
-    0    0    0
-
-
-write labs[0][2] <- 99:
-    0    0   99
-    0    0    0    0
-    0 1234    0    0    0
+    0 2121    0    0    0
     0
     0    0    0
 
 
-get_twod(4,2) <- 33:
-    0    0   99
+logging in lab: <<lab<<, station <<station<<:
+    0    0    0
     0    0    0    0
-    0 1234    0    0    0
+    0 2121    0    0    0
     0
-    0    0   33
+    0    0 4242
 
 
-reading labs[4][2]: 33
-
-get(0,2): 99
-
-found 33 at: [4][2]
-
-loggin out id: 1234
-    0    0   99
+logging in lab: <<lab<<, station <<station<<:
+login() correctly refused to log in a new user into an already occupied station
+    0    0    0
     0    0    0    0
-    0    0    0    0    0
+    0 2121    0    0    0
     0
-    0    0   33
+    0    0 4242
+
+================ test login() =====================
+
+logging out user : 6666
+logout() correctly refused to log out a user who was not logged in.
+    0    0    0
+    0    0    0    0
+    0 2121    0    0    0
+    0
+    0    0 4242
+
+
+logging out user: 4242
+    0    0    0
+    0    0    0    0
+    0 2121    0    0    0
+    0
+    0    0    0
 
 
 Deallocating two-d array 'labs'
 
 
 ---------- D O N E ----------
-[       OK ] TEST_LAB_N_PLANE.BasicTest (15 ms)
-[----------] 1 test from TEST_LAB_N_PLANE (15 ms total)
+[       OK ] TEST_LAB_N_PLANE.BasicTestLab (17 ms)
+[ RUN      ] TEST_LAB_N_PLANE.BasicTestPlane
+ X X X X
+ X X X X
+ X X X X
+ X X X X
+ X X X X
+ X X X X
+ X X X X
+
+
+
+============ test reserve() =======================
+
+reserved 1A([0][0]
+ A X X X
+ X X X X
+ X X X X
+ X X X X
+ X X X X
+ X X X X
+ X X X X
+
+
+reserved 4C([3][2]
+ A X X X
+ X X X X
+ X X X X
+ X X C X
+ X X X X
+ X X X X
+ X X X X
+
+
+reserved 7D([6][3]
+ A X X X
+ X X X X
+ X X X X
+ X X C X
+ X X X X
+ X X X X
+ X X X D
+
+
+reserved 7D([6][3]
+   reserve() correctly refused to reserve an already occupied seat.
+ A X X X
+ X X X X
+ X X X X
+ X X C X
+ X X X X
+ X X X X
+ X X X D
+
+
+
+============ test cancel() =======================
+
+cancelled 4D([3][3]
+   cancel() correctly refused to cancel unoccupied seat.
+ A X X X
+ X X X X
+ X X X X
+ X X C X
+ X X X X
+ X X X X
+ X X X D
+
+
+cancelled 4C([3][2]
+ A X X X
+ X X X X
+ X X X X
+ X X X X
+ X X X X
+ X X X X
+ X X X D
+
+
+Deallocating two-d array 'plane'
+
+
+---------- D O N E ----------
+[       OK ] TEST_LAB_N_PLANE.BasicTestPlane (32 ms)
+[----------] 2 tests from TEST_LAB_N_PLANE (51 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (17 ms total)
-[  PASSED  ] 1 test.
-</pre>
+[==========] 3 tests from 2 test suites ran. (61 ms total)
+[  PASSED  ] 3 tests.
 
 # testB.cpp output:
 <pre>
