@@ -2,11 +2,12 @@
 
 ## Name: <ins> Haroutyun chamelian </ins>
 
-## Features:
+## LOOK At Raw Read.me To see all tests:
 
 All tests passed:
 
 Using two-d arrays to creat a check in and check out system.
+
 
 <br><br>
 
