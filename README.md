@@ -78,7 +78,7 @@ td[3][14] is NOT a valid location.
 
 ================ test login() =====================
 
-logging in lab: <<lab <<, station <<station<<:
+logging in lab: lab  station
     0    0    0
     0    0    0    0
     0 2121    0    0    0
@@ -86,7 +86,7 @@ logging in lab: <<lab <<, station <<station<<:
     0    0    0
 
 
-logging in lab: <<lab <<, station <<station<<:
+logging in lab: lab  station
     0    0    0
     0    0    0    0
     0 2121    0    0    0
@@ -94,7 +94,7 @@ logging in lab: <<lab <<, station <<station<<:
     0    0 4242
 
 
-logging in lab: <<lab <<, station <<station<<:
+logging in lab:   station 
 login() correctly refused to log in a new user into an already occupied station
     0    0    0
     0    0    0    0
@@ -139,7 +139,7 @@ Deallocating two-d array 'labs'
 
 ============ test reserve() =======================
 
-reserved 1A([0][0]
+reserved 1A[0][0]
  A X X X
  X X X X
  X X X X
@@ -149,7 +149,7 @@ reserved 1A([0][0]
  X X X X
 
 
-reserved 4C([3][2]
+reserved 4C[3][2]
  A X X X
  X X X X
  X X X X
@@ -159,7 +159,7 @@ reserved 4C([3][2]
  X X X X
 
 
-reserved 7D([6][3]
+reserved 7D[6][3]
  A X X X
  X X X X
  X X X X
@@ -169,7 +169,7 @@ reserved 7D([6][3]
  X X X D
 
 
-reserved 7D([6][3]
+reserved 7D[6][3]
    reserve() correctly refused to reserve an already occupied seat.
  A X X X
  X X X X
@@ -194,7 +194,7 @@ cancelled 4D([3][3]
  X X X D
 
 
-cancelled 4C([3][2]
+cancelled 4C[3][2]
  A X X X
  X X X X
  X X X X
